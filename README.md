@@ -48,12 +48,12 @@ This Sample shows upload from an Arduino build inside Arduino-IDE via "Upload"-p
 See https://forum.seeedstudio.com/t/arduino-integration-via-boardmanager-fails-installing-board-type-w600/251387
 and https://github.com/juergs/w600-arduino_upload-workaround
 
-C:\Users\js\AppData\Local\Temp\arduino_build_131628>python3 “D:\Air602_software\w600tool-0.1\w600tool.py” -p COM15 --upload C:\Users\js\AppData\Local\Temp\arduino_build_131628/sketch_apr16a.ino.gz.img --upload-baud 115200
+*C:\Users\js\AppData\Local\Temp\arduino_build_131628>python3 “D:\Air602_software\w600tool-0.1\w600tool.py” -p COM15 --upload C:\Users\js\AppData\Local\Temp\arduino_build_131628/sketch_apr16a.ino.gz.img --upload-baud 115200
 Opening device: COM15
 Uploading C:\Users\js\AppData\Local\Temp\arduino_build_131628/sketch_apr16a.ino.gz.img
 0% [##############################] 100% | ETA: 00:00:00
 Total time elapsed: 00:00:27
-Reset board to run user code…
+Reset board to run user code…*
 
 If Arduino is your preferred programming tool:
 if you want to download and install the board definition of W600.
