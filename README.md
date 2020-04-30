@@ -55,7 +55,7 @@ Uploading C:\Users\js\AppData\Local\Temp\arduino_build_131628/sketch_apr16a.ino.
 Total time elapsed: 00:00:27
 Reset board to run user code…*
 
-If Arduino is your preferred programming tool:
+If Arduino is your preferred programming tool:</ br>
 if you want to download and install the board definition of W600.
 
     add W600 board manager URL from File -> Preference
