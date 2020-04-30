@@ -27,8 +27,33 @@ https://github.com/micropython/micropython-lib
 Get started with Wemos W600:
 https://docs.wemos.cc/en/latest/tutorials/w600/get_started_with_micropython_w600.html
 
+Bootloader+AT-Firmware: https://download.w600.fun/?dir=firmware
+
+Tutorials: https://yoursunny.com/t/2018/Air602-blink/
+           https://yoursunny.com/t/2018/Air602-weather/
+
 
 There would be two modes on programming Micropython to the board:
 So, first action is to reprogram the board's firmware using this pyton-upload-script from here:
+https://github.com/vshymanskyy/w600tool
+
+Usage: 
+python3 "D:\Air602\_software\w600tool-0.1\w600tool.py" -p COM15 --upload-baud 115200 --upload "D:\Air602\_firmware\W60x_MicroPython_1.10_B1.5_img\W60X_MicroPython_1.10_B1.5_img\1M_Flash\wm_w600_gz.img"
+
+This will erase the AT-Firmware install the Micropython not persistent on the board.
+Bootloader is not touched.. After Reset there will be only SECBOOT-Boatloader present and printints via connected 
+serial adapter "
+
+This Sample shows upload from an Arduino build inside Arduino-IDE via "Upload"-process:. 
+See https://forum.seeedstudio.com/t/arduino-integration-via-boardmanager-fails-installing-board-type-w600/251387
+C:\Users\js\AppData\Local\Temp\arduino_build_131628>python3 “D:\Air602_software\w600tool-0.1\w600tool.py” -p COM15 --upload C:\Users\js\AppData\Local\Temp\arduino_build_131628/sketch_apr16a.ino.gz.img --upload-baud 115200
+Opening device: COM15
+Uploading C:\Users\js\AppData\Local\Temp\arduino_build_131628/sketch_apr16a.ino.gz.img
+0% [##############################] 100% | ETA: 00:00:00
+Total time elapsed: 00:00:27
+Reset board to run user code…
+
+
+
 
 
