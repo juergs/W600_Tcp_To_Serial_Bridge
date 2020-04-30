@@ -38,7 +38,7 @@ So, first action is to reprogram the board's firmware using this pyton-upload-sc
 https://github.com/vshymanskyy/w600tool
 
 Usage: 
-python3 "D:\Air602\_software\w600tool-0.1\w600tool.py" -p COM15 --upload-baud 115200 --upload "D:\Air602\_firmware\W60x_MicroPython_1.10_B1.5_img\W60X_MicroPython_1.10_B1.5_img\1M_Flash\wm_w600_gz.img"
+*python3 "D:\Air602\_software\w600tool-0.1\w600tool.py" -p COM15 --upload-baud 115200 --upload "D:\Air602\_firmware\W60x_MicroPython_1.10_B1.5_img\W60X_MicroPython_1.10_B1.5_img\1M_Flash\wm_w600_gz.img"*
 
 This will erase the AT-Firmware install the Micropython not persistent on the board.
 Bootloader is not touched.. After Reset there will be only SECBOOT-Boatloader present and printints via connected 
@@ -46,7 +46,7 @@ serial adapter "
 
 This Sample shows upload from an Arduino build inside Arduino-IDE via "Upload"-process:
 See https://forum.seeedstudio.com/t/arduino-integration-via-boardmanager-fails-installing-board-type-w600/251387
-and https://github.com/juergs/w600-arduino_upload-workaround
+and https://github.com/juergs/w600-arduino_upload-workaround to overcome buggy implementation.
 
 *C:\Users\js\AppData\Local\Temp\arduino_build_131628>python3 “D:\Air602_software\w600tool-0.1\w600tool.py” -p COM15 --upload C:\Users\js\AppData\Local\Temp\arduino_build_131628/sketch_apr16a.ino.gz.img --upload-baud 115200
 Opening device: COM15
@@ -63,8 +63,16 @@ if you want to download and install the board definition of W600.
     open Board Manager Tools -> Board -> Board Manager
     search for W600 and click install.
     
-    
+Second method: make Micropython with adeqaute Bootloader persistent, switching the board on holding PA_0 Low!
+The developer had forgotten to add an pad for that requirement. So you will have to target directly pin 13 on the cpu-chip!
+Using for this purpouse **download.py** instead of **w600tool.py**! 
 
+*REM python3 "D:\Work_STM32\_Hardware\Air602\_software\w600tool-0.1\w600tool.py" -p COM15 --upload-baud 115200 --upload "D:\Work_Air602\_firmware\W60x_MicroPython_1.10_B1.5_img\W60X_MicroPython_1.10_B1.5_img\1M_Flash\wm_w600.fls"
 
+REM remember to push PA0 constantly to GND during update-process
+REM using download.py instead of w600tool.py! 
+cd D:\Work_Air602_software\w600tool-0.1
+python .\download.py -p COM15 -b 115200 --upload D:\Work_Air602_firmware\W60x_MicroPython_1.10_B1.5_img\W60X_MicroPython_1.10_B1.5_img\1M_Flash\wm_w600.fls
+pause*
 
 
