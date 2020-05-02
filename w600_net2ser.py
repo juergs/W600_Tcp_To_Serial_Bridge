@@ -2,7 +2,7 @@ import select
 import socket
 import machine
 import sys
-import connect_jsi_main
+# import connect_jsi_main
 from time import sleep
 
 
@@ -52,6 +52,7 @@ class Ser2TcpServer():
         """ establish tcp client connection"""
         print("*** waiting for client connect.")
         connection, client_ip = self._socket.accept()
+        connection.setblocking(0) 
         self._connection = connection
         self._client_ip = client_ip
         # print("*** client connect." + client_ip)
@@ -128,7 +129,8 @@ class Ser2TcpServer():
             # self._clients_disconnect()
             return
 
-        if data == "b''":
+        # if data == "b''":
+        if not data: 
             '''ignore empty string'''
             sleep(2)
             return
@@ -180,7 +182,7 @@ def main():
 if __name__ == '__main__':
 
     print("\n\n*** Register @WLAN before executing main.")
-    connect_jsi_main.main()
+    # connect_jsi_main.main()
     print("\n\n*** WLAN connected sucessfully.")
     print("\n\n*** Execute main now.")
     main()
