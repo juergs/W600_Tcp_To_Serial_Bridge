@@ -2,7 +2,7 @@
 See: [Wiki](https://github.com/juergs/W600_Tcp_To_Serial_Bridge/wiki) for more informations.
 
 
-<s>Unresolved</s> solved: blocking connection.recv(255) doesn't allow asynchronous serial send/ tcp receive. 
+<s>Unresolved</s> Solved: blocking connection.recv(255) doesn't allow asynchronous serial send/ tcp receive. 
 
 >socket.accept() returns a tuple, consisting of the a socket and an address. So in your script, the variable connection is of 
 >type "socket". Which can set to non-blocking mode by connection.setblocking(False). 
