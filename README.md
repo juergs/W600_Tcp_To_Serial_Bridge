@@ -4,11 +4,11 @@ See: [Wiki](https://github.com/juergs/W600_Tcp_To_Serial_Bridge/wiki) for more i
 
 <s>Unresolved</s> solved: blocking connection.recv(255) doesn't allow asynchronous serial send/ tcp receive. 
 
-  socket.accept() returns a tuple, consisting of the a socket and an address. So in your script, the variable connection is of type socket.
-  Which can set to non-blocking mode by connection.setblocking(False). 
+>socket.accept() returns a tuple, consisting of the a socket and an address. So in your script, the variable connection is of 
+>type "socket". Which can set to non-blocking mode by connection.setblocking(False). 
   
 The Script 	connect_jsi_main.py serves as initializer on setup (main.py) to establish a WLAN-connection before opening a socket server 
-by 
+by executing of script Serial_Bridge_ok.py.
 
 See: [select with socket](https://steelkiwi.com/blog/working-tcp-sockets/) and [how can non-blocking socket instances be implemented](https://forum.micropython.org/viewtopic.php?t=4211)
 
